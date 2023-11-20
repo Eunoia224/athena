@@ -21,7 +21,7 @@ const Login = () => {
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="border flex flex-row gap-8 p-2 my-6 justify-center items-center rounded-sm mx-auto"
+            className="border border-primary-10 dark:border-primary-0 flex flex-row gap-8 p-2 my-6 justify-center items-center rounded-sm mx-auto"
           >
             <IconBrandGoogle /> <span>Login with Google</span>
           </motion.button>
@@ -47,7 +47,7 @@ const Login = () => {
                 className="p-2 w-full text-primary-10 rounded-sm mb-4 focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
                 onChange={(e) => setUser({ ...user, password: e.target.value })}
               />
-              <div className="-mt-12 text-primary-10 flex mr-5 justify-end">
+              <div className="-mt-12 text-primary-10 dark:text-primary-0 flex mr-5 justify-end">
                 {showPassword ? (
                   <IconEye
                     className="cursor-pointer"

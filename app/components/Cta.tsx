@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Cta = () => {
   return (
     <div>
-      <div className="flex justify-center content-center my-10 flex-col gap-8 h-screen">
+      <div className="flex justify-center content-center my-10 flex-col gap-8 h-screen backdrop-blur-xl bg-gradient-to-r from-secondary-9 to-secondary-7 ">
         <div className="mx-auto text-center">
           <p className="text-xl">
             What are you waiting for? Join us and make your life easier.

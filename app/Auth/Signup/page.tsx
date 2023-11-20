@@ -26,7 +26,7 @@ const Signup = () => {
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="border flex flex-row gap-8 p-2 my-8 justify-center items-center rounded-sm mx-auto"
+            className="border border-primary-10 dark:border-primary-0 flex flex-row gap-8 p-2 my-8 justify-center items-center rounded-sm mx-auto"
           >
             <IconBrandGoogle /> <span>Sign up with Google</span>
           </motion.button>
@@ -37,7 +37,7 @@ const Signup = () => {
                 type="text"
                 placeholder="John"
                 id="firstName"
-                className="p-2 w-full text-primary-10 rounded-sm mb-4 focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
+                className="p-2 w-full text-primary-10 dark:text-primary-0 rounded-sm mb-4 focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
                 onChange={(e) =>
                   setUser({ ...user, firstName: e.target.value })
                 }
@@ -49,7 +49,7 @@ const Signup = () => {
                 type="text"
                 placeholder="Doe"
                 id="lastName"
-                className="p-2 w-full text-primary-10 rounded-sm mb-4 focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
+                className="p-2 w-full text-primary-10 dark:text-primary-0 rounded-sm mb-4 focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
                 onChange={(e) => setUser({ ...user, lastName: e.target.value })}
               />
             </label>
@@ -59,7 +59,7 @@ const Signup = () => {
                 type="text"
                 placeholder="Your Email"
                 id="email"
-                className="p-2 w-full text-primary-10 rounded-sm mb-4 focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
+                className="p-2 w-full text-primary-10 dark:text-primary-0 rounded-sm mb-4 focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
                 onChange={(e) => setUser({ ...user, email: e.target.value })}
               />
             </label>
@@ -71,7 +71,7 @@ const Signup = () => {
                 type="text"
                 placeholder="Username"
                 id="username"
-                className="p-2 w-full text-primary-10 rounded-sm mb-4 focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
+                className="p-2 w-full text-primary-10 dark:text-primary-0 rounded-sm mb-4 focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
                 onChange={(e) => setUser({ ...user, username: e.target.value })}
               />
             </label>
@@ -81,10 +81,10 @@ const Signup = () => {
                 type={showPassword ? "text" : "password"}
                 placeholder="Your Password"
                 id="password"
-                className="p-2 w-full text-primary-10 rounded-sm focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
+                className="p-2 w-full text-primary-10 dark:text-primary-0 rounded-sm focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
                 onChange={(e) => setUser({ ...user, password: e.target.value })}
               />
-              <div className="-mt-8 text-primary-10 flex mr-5 justify-end">
+              <div className="-mt-8 text-primary-10 dark:text-primary-0 flex mr-5 justify-end">
                 {showPassword ? (
                   <IconEye
                     className="cursor-pointer"
@@ -104,7 +104,7 @@ const Signup = () => {
                 type={showPassword ? "text" : "password"}
                 placeholder="Repeat Your Password"
                 id="repeat"
-                className="p-2 w-full text-primary-10 rounded-sm mb-4 focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
+                className="p-2 w-full text-primary-10 dark:text-primary-0 rounded-sm mb-4 focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
               />
             </label>
             <motion.button

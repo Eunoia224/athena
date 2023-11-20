@@ -1,11 +1,11 @@
 "use client";
 import Logo from "@/public/logo.svg";
-import { retrieveSession } from "@/utility/utility";
+import { getRandomHexColor, retrieveSession } from "@/utility/utility";
 import {
   IconLogout,
-  IconMenu,
-  IconPlus,
+  IconMenu, IconMoon, IconPlus,
   IconProgress,
+  IconSunHigh,
   IconUser,
   IconX
 } from "@tabler/icons-react";
@@ -14,19 +14,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
+
 const Header = () => {
-  // TODO! Handle the theme switcher
-  // const { theme, setTheme } = useTheme();
-  // const [theme, setTheme] = useState<Boolean>(true);
   const [toggle, setToggle] = useState(false);
-  // const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState(false);
   const [toggleUserMenu, setToggleUserMenu] = useState(false);
-  // const toggleTheme = () => {
-  //   setTheme(!theme);
-  // };
-  // useEffect(() => {
-  //   localStorage.setItem("athenaTheme", theme as any);
-  // });
   const [userSession, setUserSession] = useState();
   const session = Promise.resolve(retrieveSession());
   useEffect(() => {
@@ -39,7 +31,7 @@ const Header = () => {
     {
       name: "Projects",
       icon: <IconProgress />,
-      link: "/P/",
+      link: "/Projects/",
       toolTipId: "projects",
       toolTipContent: "Access your projects",
     },
@@ -107,41 +99,26 @@ const Header = () => {
 
   return (
     <nav>
-      <div className="flex justify-between content-center">
+      <div className="flex justify-between content-center md:gap-8 gap-20">
+        {/* TODO add theme toggler here */}
         <div className="mt-2">
-          something
-          {/* <div>
-            The current theme is: {theme}
-            <button onClick={() => setTheme("light")}>Light Mode</button>
-            <button onClick={() => setTheme("dark")}>Dark Mode</button>
-          </div> */}
-          {/* <IconSunHigh
-            onClick={() => setTheme("light")}
-            className="cursor-pointer"
-            stroke={1}
-          />
-          <IconMoon
-            onClick={() => setTheme("dark")}
-            className="cursor-pointer"
-            stroke={1}
-          /> */}
-          {/* {localStorage.getItem("athenaTheme") === "true" ? (
+          {theme ? (
             <IconSunHigh
-              onClick={toggleTheme}
+              onClick={() => setTheme(false)}
               className="cursor-pointer"
               stroke={1}
             />
           ) : (
             <IconMoon
-              onClick={toggleTheme}
+              onClick={() => setTheme(true)}
               className="cursor-pointer"
               stroke={1}
             />
-          )} */}
+          )}
         </div>
         {/* Logo */}
         <Link href={"/"}>
-          <div className="flex flex-row content-center gap-4">
+          <div className="flex flex-row content-center gap-4 mx-auto">
             <Image src={Logo} alt="Athena's logo" width={60} />
             <span className="text-secondary-5 font-bold text-4xl my-auto">
               Athena
@@ -156,7 +133,10 @@ const Header = () => {
               {userSession ? (
                 <>
                   <div
-                    className={`rounded-full p-2 cursor-pointer bg-gradient-to-r text-primary-0 from-secondary-4 to-secondary-8`}
+                    className={`rounded-full p-2 cursor-pointer `}
+                    style={{
+                      background: `linear-gradient(to top left, ${getRandomHexColor()}, ${getRandomHexColor()})`,
+                    }}
                     onClick={() => setToggleUserMenu(!toggleUserMenu)}
                   >
                     {toggleUserMenu ? <IconX /> : <IconUser />}
