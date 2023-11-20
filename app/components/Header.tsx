@@ -4,25 +4,22 @@ import { retrieveSession } from "@/utility/utility";
 import {
   IconLogout,
   IconMenu,
-  IconMoon,
   IconPlus,
   IconProgress,
-  IconSunHigh,
   IconUser,
-  IconX,
+  IconX
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
-import { useTheme } from "next-themes";
 const Header = () => {
   // TODO! Handle the theme switcher
-  const { theme, setTheme } = useTheme();
+  // const { theme, setTheme } = useTheme();
   // const [theme, setTheme] = useState<Boolean>(true);
   const [toggle, setToggle] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  // const [mounted, setMounted] = useState(false);
   const [toggleUserMenu, setToggleUserMenu] = useState(false);
   // const toggleTheme = () => {
   //   setTheme(!theme);
