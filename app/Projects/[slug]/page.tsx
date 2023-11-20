@@ -1,37 +1,41 @@
 "use client";
 import { project } from "@/utility/projects";
+import { tasks } from "@/utility/task";
 import { useParams } from "next/navigation";
 
 const Project = () => {
   const { slug } = useParams();
+
   const currentProject: any = project.map((pr) => {
     if (pr.projectID === slug) {
       return (
         <div
-          className="dark:bg-primary-10 bg-primary-0 flex flex-col justify-evenly p-4 rounded-lg shadow-xl items-center"
+          className="dark:bg-primary-10 bg-primary-0 flex flex-col justify-evenly p-4 rounded-lg shadow-xl items-start"
           key={pr.projectID}
         >
           <p className="text-2xl">Project Name: {pr.projectName}</p>
-          <p>{pr.projectDesc}</p>
-          <div className="flex flex-row flex-wrap text-sm gap-2">
-            {pr.projectTags.map((tag, index) => {
+          <p className="text-primary-8 dark:text-primary-1 text-sm">
+            {pr.projectDesc}
+          </p>
+          {/* TODO WORK OUT THE UI FOR the tasks */}
+          {tasks.map((task) => {
+            if (task.projectId === pr.projectID) {
               return (
-                <div
-                  key={index}
-                  className={`bg-[#${tag.tagColor}] p-1 rounded-xl mix-blend-screen`}
-                  style={{ backgroundColor: tag.tagColor }}
-                >
-                  {tag.tagName}
+                <div key={task.taskID}>
+                  {task.taskName}
+                  {task.taskDesc}
+                  {task.taskDate}
+                  {task.taskStatus}
                 </div>
               );
-            })}
-          </div>
+            }
+          })}
         </div>
       );
     }
   });
 
-  return <div>{currentProject}</div>;
+  return <div className="my-8">{currentProject}</div>;
 };
 
 export default Project;

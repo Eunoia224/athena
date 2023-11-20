@@ -1,13 +1,20 @@
 "use client";
 import Logo from "@/public/logo.svg";
-import { getRandomHexColor, retrieveSession } from "@/utility/utility";
 import {
+  getRandomHexColor,
+  logUserOut,
+  retrieveSession,
+} from "@/utility/utility";
+import {
+  IconBell,
   IconLogout,
-  IconMenu, IconMoon, IconPlus,
+  IconMenu,
+  IconMoon,
+  IconPlus,
   IconProgress,
   IconSunHigh,
   IconUser,
-  IconX
+  IconX,
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -17,10 +24,10 @@ import { Tooltip } from "react-tooltip";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
-  const [theme, setTheme] = useState(false);
   const [toggleUserMenu, setToggleUserMenu] = useState(false);
   const [userSession, setUserSession] = useState();
   const session = Promise.resolve(retrieveSession());
+  const [theme, setTheme] = useState(false);
   useEffect(() => {
     session.then((value: any) => {
       setUserSession(value);
@@ -28,6 +35,13 @@ const Header = () => {
   }, [retrieveSession]);
 
   const navItemsSession = [
+    {
+      name: "Notifications",
+      icon: <IconBell />,
+      link: "#",
+      toolTipId: "notification",
+      toolTipContent: "Notifications",
+    },
     {
       name: "Projects",
       icon: <IconProgress />,
@@ -100,31 +114,25 @@ const Header = () => {
   return (
     <nav>
       <div className="flex justify-between content-center md:gap-8 gap-20">
-        {/* TODO add theme toggler here */}
-        <div className="mt-2">
-          {theme ? (
-            <IconSunHigh
-              onClick={() => setTheme(false)}
-              className="cursor-pointer"
-              stroke={1}
-            />
-          ) : (
-            <IconMoon
-              onClick={() => setTheme(true)}
-              className="cursor-pointer"
-              stroke={1}
-            />
-          )}
-        </div>
         {/* Logo */}
         <Link href={"/"}>
-          <div className="flex flex-row content-center gap-4 mx-auto">
-            <Image src={Logo} alt="Athena's logo" width={60} />
+          <div className="flex flex-row gap-4 mx-auto">
+            <Image src={Logo} alt="Athena's logo" className="w-8" />
             <span className="text-secondary-5 font-bold text-4xl my-auto">
               Athena
             </span>
           </div>
         </Link>
+        {/* {userSession && (
+          <div>
+            <input
+              type="search"
+              placeholder="Find projects"
+              id="search"
+              className="hidden md:inline p-2 w-full  border text-primary-10 dark:text-primary-0 rounded-sm mb-4 focus:outline-none focus:border-secondary-6 focus:ring-2 focus:ring-secondary-6"
+            />
+          </div>
+        )} */}
 
         {/* Desktop Navigation */}
         <div>
@@ -142,12 +150,32 @@ const Header = () => {
                     {toggleUserMenu ? <IconX /> : <IconUser />}
                   </div>
                   {toggleUserMenu && (
-                    <div className="absolute right-6 mt-12 bg-primary-10 rounded-xl p-5 flex flex-col gap-y-4">
+                    <div className="absolute right-6 mt-12 border border-secondary-6 bg-primary-10 rounded-xl p-5 flex flex-col gap-y-4">
                       {navLinksRenderWithSession}
+                      {theme ? (
+                        <IconSunHigh
+                          onClick={() => setTheme(false)}
+                          className="cursor-pointer"
+                          stroke={1}
+                          data-tooltip-id="toggle"
+                          data-tooltip-content="darkness falls"
+                        />
+                      ) : (
+                        <IconMoon
+                          onClick={() => setTheme(true)}
+                          className="cursor-pointer"
+                          stroke={1}
+                          data-tooltip-id="toggle"
+                          data-tooltip-content="let there be light"
+                        />
+                      )}
+
+                      <Tooltip id="toggle" variant="light" />
                       <div
                         className="flex flex-row gap-2 justify-between cursor-pointer text-primary-0"
                         data-tooltip-id="logout"
                         data-tooltip-content="logout"
+                        onClick={() => logUserOut()}
                       >
                         <IconLogout />
                       </div>
@@ -163,7 +191,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className="sm:hidden flex flex-1 justify-end items-center">
+        <div className="sm:hidden mr-8 flex flex-1 justify-end items-center">
           {toggle && userSession ? (
             <IconX
               onClick={() => setToggle(!toggle)}
@@ -187,12 +215,32 @@ const Header = () => {
               <div className="flex flex-col gap-8 justify-center mt-2">
                 {userSession ? (
                   <>
-                    <div className="absolute right-2 top-1 rounded-xl p-5 flex flex-col bg-primary-10 gap-y-4">
+                    <div className="absolute right-2 top-1 rounded-xl p-5 flex flex-col  border border-secondary-6 bg-primary-10 gap-y-4">
                       {navLinksRenderWithSession}
+                      {theme ? (
+                        <IconSunHigh
+                          onClick={() => setTheme(false)}
+                          className="cursor-pointer"
+                          stroke={1}
+                          data-tooltip-id="toggle"
+                          data-tooltip-content="darkness falls"
+                        />
+                      ) : (
+                        <IconMoon
+                          onClick={() => setTheme(true)}
+                          className="cursor-pointer"
+                          stroke={1}
+                          data-tooltip-id="toggle"
+                          data-tooltip-content="let there be light"
+                        />
+                      )}
+
+                      <Tooltip id="toggle" variant="light" />
                       <div
                         className="flex flex-row gap-2 justify-between cursor-pointer text-primary-0"
                         data-tooltip-id="logout"
                         data-tooltip-content="logout"
+                        onClick={() => logUserOut()}
                       >
                         <IconLogout />
                       </div>

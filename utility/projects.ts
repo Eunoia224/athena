@@ -7,10 +7,11 @@ export const project = [
     projectDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus deserunt nihil rem eum soluta ipsam voluptatem iusto nisi recusandae corrupti!",
     projectTags: [
-       { tagName: "#initiating", tagColor: "#0000ff" },
-      { tagName: "#update", tagColor: "#ff00ff" },
+      { tagName: "#initiating", tagColor: "rgba(255, 99, 71, 1)" },
+      { tagName: "#update", tagColor: "rgba(52, 99, 71, 1)" },
     ],
     projectStatus: "Urgent",
+    
   },
   {
     projectID: "djhfietu39i39e03e8ar038eauihece",
@@ -20,8 +21,8 @@ export const project = [
     projectDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus deserunt nihil rem eum soluta ipsam voluptatem iusto nisi recusandae corrupti!",
     projectTags: [
-      { tagName: "#initiating", tagColor: "red" },
-      { tagName: "#update", tagColor: "pink" },
+      { tagName: "#initiating", tagColor: "rgba(255, 99, 71, 1)" },
+      { tagName: "#update", tagColor: "rgba(25, 93, 71, 0.5)" },
     ],
     projectStatus: "Urgent",
   },
@@ -33,8 +34,8 @@ export const project = [
     projectDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus deserunt nihil rem eum soluta ipsam voluptatem iusto nisi recusandae corrupti!",
     projectTags: [
-       { tagName: "#initiating", tagColor: "yellow" },
-      { tagName: "#update", tagColor: "brown" },
+      { tagName: "#initiating", tagColor: "rgba(150, 20, 71, 1)" },
+      { tagName: "#update", tagColor: "rgba(25, 93, 71, 0.5)" },
     ],
     projectStatus: "Urgent",
   },
@@ -45,10 +46,7 @@ export const project = [
     createdAt: "datetime here",
     projectDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus deserunt nihil rem eum soluta ipsam voluptatem iusto nisi recusandae corrupti!",
-    projectTags: [
-       { tagName: "#initiating", tagColor: "red" },
-      { tagName: "#update", tagColor: "#0ff" },
-    ],
+    projectTags: [{ tagName: "#initiating", tagColor: "rgba(255, 99, 71, 1)" }],
     projectStatus: "Urgent",
   },
   {
@@ -58,10 +56,7 @@ export const project = [
     createdAt: "datetime here",
     projectDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus deserunt nihil rem eum soluta ipsam voluptatem iusto nisi recusandae corrupti!",
-    projectTags: [
-       { tagName: "#initiating", tagColor: "#0f0" },
-      { tagName: "#update", tagColor: "#f0f" },
-    ],
+    projectTags: [{ tagName: "#update", tagColor: "rgba(25, 93, 71, 0.5)" }],
     projectStatus: "Urgent",
   },
 ];
